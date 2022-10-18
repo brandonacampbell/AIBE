@@ -7,46 +7,79 @@
 
 
 
+using ABIE;
 using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
+using System.Text.Json;
 
-Console.WriteLine("Hello, Im AIBE. ");
-Console.WriteLine("I am an Artificial Intelligence Budget Executive");
-Console.WriteLine("My goal is to help you plan a budget.");
-Console.WriteLine("select from the following options, and confirm your selection by pressing enter.");
-Console.WriteLine("1 - New Client , 2 - Returning client , 3 -Exit program");
-string input = Console.ReadLine();
-int number;
-Int32.TryParse(input, out number);
 
-switch (selection)
+int Greeting()
 {
-    case constant - expression1:
-        statement(s);
+    Console.WriteLine("Hello, Im AIBE. ");
+    Console.WriteLine("I am an Artificial Intelligence Budget Executive");
+    Console.WriteLine("My goal is to help you plan a budget.");
+    Console.WriteLine("select from the following options, and confirm your selection by pressing enter.");
+    Console.WriteLine("1 - New Client , 2 - Returning client , 3 -Exit program");
+    int input = int.Parse(Console.ReadLine());
+    return input; 
+}
+ 
+//load (decearlize) json (making a gloab list) 
+var clients = new List<budgetnewclient>();
+//while loop, until greeting = 3. 
+switch (Greeting())
+{
+    case 1:
+        Console.WriteLine("You've selected number 1.");
+        //instanciate class
+        var newclient = new budgetnewclient (); 
+        //add to global list of clients.
+        clients.Add (newclient);
+        Console.WriteLine("Please enter your name:");
+        newclient.Name = Console.ReadLine();
+        //how to save ind user info for more than one client. 
+    
+        //save serialize json.
         break;
-    case constant - expression2:
-    case constant - expression3:
-        statement(s);
+    case 2:
+        Console.WriteLine("You've selected number 2.");// use indentifier to search gloabl list. 
+        //ask for ID (name ) 
+        //iterate over list or use linq (GLobal list) 
+        //Print client out to screen (use auth) 
+        break;
+    case 3:
+        Console.WriteLine("You've selected number 3.");
         break;
 
     /* you can have any number of case statements */
     default: /* Optional */
-        statement(s);
+        Console.WriteLine("you must select from the above options");
+        break;
 }
+
+
 
 //if else else or switch  (passing X to swicth statement (x is parameter)
 // if input is = 1 new client (if
 // x = 1 
-//if input is = 2 returning client 
+//if input is = 2 returning clien
+//t 
 //if input is >3,or not an int,  error message
 
+
+
+
 // new client 
-// Console.WriteLine("Welcome to AIBE.)
-//Console.WriteLine("I will be collecting various amounts of data from you
-//about bills, debts, and your income. you'll need due dates and amounts for your
-////bills and debts. if you have do not have this information and wish to revisit
-// a later time, as a new client,  press 3. 
+Console.WriteLine("Welcome to AIBE.");
+Console.WriteLine("I will be collecting various amounts of data from you");
+Console.WriteLine("about bills, debts, and your income. you'll need due dates and amounts for your");
+Console.WriteLine("bills and debts. if you have do not have this information and wish to revisit");
+Console.WriteLine("a later time, as a new client,  press 3. if you want to contiune, press 1.");
+int CheckPoint1 = Console.ReadLine();
+
+
+
 // Console.WriteLine(Lets start with some detials about you.")
 // Console.WriteLine("What is your first name?")
 // Last name. 
@@ -54,7 +87,7 @@ switch (selection)
 //(this pin needs to be somehting easy to remember, as you will need it for 
 //authenication when you return.) 
 //
-//
+//guid
 //
 //
 
