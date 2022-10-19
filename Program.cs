@@ -8,6 +8,7 @@
 
 
 using ABIE;
+using System.Diagnostics;
 using System.Linq.Expressions;
 using System.Reflection.Metadata;
 using System.Runtime.InteropServices;
@@ -71,12 +72,32 @@ switch (Greeting())
 
 
 // new client 
-Console.WriteLine("Welcome to AIBE.");
-Console.WriteLine("I will be collecting various amounts of data from you");
-Console.WriteLine("about bills, debts, and your income. you'll need due dates and amounts for your");
-Console.WriteLine("bills and debts. if you have do not have this information and wish to revisit");
-Console.WriteLine("a later time, as a new client,  press 3. if you want to contiune, press 1.");
-int CheckPoint1 = Console.ReadLine();
+
+int CheckPointOne()
+{
+    Console.WriteLine("Welcome to AIBE.");
+    Console.WriteLine("I will be collecting various amounts of data from you");
+    Console.WriteLine("about bills, debts, and your income. you'll need due dates and amounts for your");
+    Console.WriteLine("bills and debts. if you have do not have this information and wish to revisit");
+    Console.WriteLine("a later time, as a new client,  press 3. if you want to contiune, press 1.");
+    int CheckPoint1 = int.Parse(Console.ReadLine());
+    return CheckPoint1;
+}
+
+switch (CheckPointOne())
+{
+    case 1 :
+        Console.WriteLine("Thank you");
+        break;
+
+    case 3 :
+        Environment.Exit(0); //doesnt work (doesnt close app)
+            break;
+    default:
+        Console.WriteLine("You must select one of the above options.");
+        break;
+
+} 
 
 
 
